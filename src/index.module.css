@@ -1,0 +1,57 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background-color: silver;
+}
+
+:global(#root) {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background-color: silver;
+}
+
+.component {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+}
+
+
+.body {
+  margin: 0;
+  width: 100%;
+  max-width: 1200px;
+  min-height: 100%;
+  background-color: #61dafb;
+}
+
+.component_title {
+  height: 105px;
+  font-size: 42px;
+  line-height: 105px;
+  background-color: chocolate;
+  text-align: center;
+}
+
+.container {
+  width: 350px;
+  height: 200px;
+  outline: 1px solid black;
+  background-color: white;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.column {
+  display: flex;
+  background-color: pink;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
