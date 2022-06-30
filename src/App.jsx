@@ -2,8 +2,6 @@ import {useState} from 'react'
 import logo from './logo.svg'
 import style from './index.module.css'
 
-import useDimensions from "react-use-dimensions";
-
 
 function Component() {
 

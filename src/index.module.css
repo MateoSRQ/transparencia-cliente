@@ -31,11 +31,11 @@ html, body {
 }
 
 .component_title {
-  height: 105px;
   font-size: 42px;
-  line-height: 105px;
+  line-height: 60px;
   background-color: chocolate;
   text-align: center;
+  font-family: "Source Code Pro", Arial, sans-serif;
 }
 
 .container {
