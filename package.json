@@ -10,6 +10,7 @@
   "dependencies": {
     "@fontsource/bebas-neue": "^4.5.7",
     "@fontsource/source-sans-pro": "^4.5.10",
+    "axios": "^0.27.2",
     "react": "^18.0.0",
     "react-columns": "^1.2.1",
     "react-dom": "^18.0.0",
