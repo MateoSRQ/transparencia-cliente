@@ -1,9 +1,15 @@
 import {useEffect, useState} from 'react'
 import style from './index.module.css'
 import axios from 'axios'
+import { Routes, Route, useParams } from 'react-router-dom';
+
 
 function Component() {
     const [data, setData] = useState([])
+    const params = useParams()
+
+    console.log('PARAMS')
+    console.log(params)
 
     const getData = async () => {
         try {
@@ -26,21 +32,19 @@ function Component() {
     let children = null
     if (data.length) {
         children = data.map((item) => {
-            console.log('item')
-            console.log(item)
             let gchildren = item.attributes.componentes.data.map((child) => {
-                console.log('gchild')
-                console.log(child)
                 return (
 
-                    <div className={style.container}>
-                        <div className={style.sub}>
-                            {child.attributes.titulo}
+                        <div className={style.container}>
+                            <a href={child.attributes.slug}>
+                                <div className={style.sub}>
+                                    <div>{child.attributes.titulo}</div>
+                                </div>
+                                <div className={style.description}>
+                                    {child.attributes.descripcion}
+                                </div>
+                            </a>
                         </div>
-                        <div className={style.description}>
-                            {child.attributes.descripcion}
-                        </div>
-                    </div>
 
                 )
             })
