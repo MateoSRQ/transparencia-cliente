@@ -32,9 +32,16 @@ function Component() {
                 console.log('gchild')
                 console.log(child)
                 return (
+
                     <div className={style.container}>
-                        {child.attributes.titulo}
+                        <div className={style.sub}>
+                            {child.attributes.titulo}
+                        </div>
+                        <div className={style.description}>
+                            {child.attributes.descripcion}
+                        </div>
                     </div>
+
                 )
             })
 
