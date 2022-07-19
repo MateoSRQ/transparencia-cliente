@@ -55,9 +55,7 @@ a {
     width: 280px;
     height: 150px;
     background-color: white;
-    margin: 0 auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin: 20px;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -98,7 +96,7 @@ a {
 .column {
     display: flex;
     background-color: #f1f1f1;
-    justify-content: space-between;
+    justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
 }

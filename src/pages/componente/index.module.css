@@ -46,32 +46,55 @@ a {
     margin-top: 10px;
 }
 
+.subtitle {
+    font-size: 1.0rem;
+    margin-top: 12px;
+    color: #3f0dae;
+    line-height: 1.0rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 90%;
+}
+
+.date {
+    font-size: .5rem;
+    margin-top: 4px;
+    color: rgb(175, 175, 175);
+    line-height: .4rem;
+    width: 90%;
+    font-family: "Source Code Pro", Arial, sans-serif;
+    text-align: right;
+}
+
 .banner {
     max-width: 100%;
     height: auto;
 }
 
 .container {
-    width: 280px;
-    height: 150px;
-    background-color: white;
-    margin: 0 auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    width: 240px;
+    height: 110px;
+    margin: 20px;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     text-align: center;
     display: flex;
     justify-content: center;
     justify-items: center;
-    align-content: center;
+    align-content: flex-start;
     align-items: center;
     flex-flow: column;
     font-family: "Bebas Neue", Arial, sans-serif;
     font-size: 1.4rem;
     line-height: 1.5rem;
-    padding: 16px;
-    border-top: 4px solid #3f0dae;
-    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-    color: #3f0dae;
+    padding: 0px;
+    cursor: pointer;
+    background: white;
+    border-radius: 8px;
+}
+
+.container:hover {
+    transform: scale(1.2)
 }
 
 .sub {
@@ -98,7 +121,12 @@ a {
 .column {
     display: flex;
     background-color: #f1f1f1;
-    justify-content: space-between;
+    justify-content: center;
+    justify-items: center;
+    align-items: flex-start;
+    /*justify-self: center;*/
+    /*align-items: center;*/
+    /*align-content: center;*/
     flex-direction: row;
     flex-wrap: wrap;
 }

@@ -10,15 +10,13 @@ function Component() {
 
     const getData = async () => {
         try {
-            let response = await axios.get(import.meta.env.VITE_API_URL + 'tipos?populate=componentes');
-            setData(response.data.data)
+            let response = await axios.get(import.meta.env.VITE_API_URL + 'componentes?populate[titulos][populate][0]=enlaces.enlace&filters[slug][$eq]=' + slug );
+            setData(response?.data?.data[0])
         } catch (e) {
             console.log(e)
             setData([])
         }
-
     }
-
     useEffect(() => {
         getData()
     }, []);
@@ -27,40 +25,50 @@ function Component() {
     console.log(data)
 
     let children = null
-    if (data.length) {
-        children = data.map((item) => {
-            let gchildren = item.attributes.componentes.data.map((child) => {
-                return (
+    if (data?.attributes?.titulos ) {
 
-                    <div className={style.container}>
-                        <a href={child.attributes.slug}>
-                            <div className={style.sub}>
-                                <div>{child.attributes.titulo}</div>
-                            </div>
-                            <div className={style.description}>
-                                {child.attributes.descripcion}
-                            </div>
-                        </a>
-                    </div>
+        children = data.attributes.titulos.data.map((item) => {
+            console.log(item)
 
-                )
+            let gchildren = item.attributes.enlaces.data.map(subitem => {
+                console.log('si')
+                console.log(subitem.attributes.enlace)
+               return (
+                   <a href={import.meta.env.VITE_ROOT_URL + subitem.attributes.enlace.data.attributes.url}>
+                       <div className={style.container}>
+                           <img src="./assets/images/file.png"
+                                style={{filter: 'hue-rotate(284deg)', width: '48px', transform: 'rotate(-2deg)'}}/>
+                           <div className={style.subtitle}>{subitem.attributes.titulo}</div>
+                           <div className={style.date}>Actualizado en {subitem.attributes.enlace.data.attributes.updatedAt}</div>
+
+                       </div>
+                   </a>
+               )
             })
+
 
             return (
                 <>
-                    <div className={style.component_title}>{item.attributes.titulo}</div>
+                    <div className={style.component_title} style={{fontSize: '1.7rem'}}>{item.attributes.titulo}</div>
                     <div className={style.column}>
-                        {gchildren}
+                    {gchildren}
                     </div>
                 </>
             )
         })
     }
 
-
     return (
         <div className={style.component}>
-            {slug}
+            <img className={style.banner} src="./assets/images/banner.jpg"/>
+            <div className={style.body}>
+                <div className={style.component_title} style={{width: '80%', fontWeight: 600, margin: '0 auto', marginTop: '20px', marginBottom: '60px', lineHeight: '2.3rem'}}>{data?.attributes?.titulo}</div>
+
+                {children}
+            </div>
+            <code style={{width: '80%'}}>
+                {JSON.stringify(data)}
+            </code>
         </div>
     )
 }
